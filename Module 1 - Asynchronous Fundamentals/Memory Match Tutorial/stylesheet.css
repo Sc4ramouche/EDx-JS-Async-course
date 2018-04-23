@@ -1,0 +1,42 @@
+/* 
+  green #4CAF50
+  red #F44336
+  purple #9C27B0
+  blue #2196F3
+  amber #FFC107
+*/
+
+body {
+  font-family: 'Courier New', Courier, monospace;
+  color: #424242;
+}
+
+table, td {
+  border: 3px solid #424242;
+  margin: 32px auto 16px auto;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+td {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  background-color: #2196F3;
+}
+
+td:hover {
+  background-color: #FFC107;
+}
+
+#restart {
+  display: block;
+  margin: 0 auto;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#timer {
+  display: block;
+  margin: 16px;
+  text-align: center;
+}
