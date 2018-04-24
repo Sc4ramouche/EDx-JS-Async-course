@@ -41,7 +41,7 @@ function updateTable(tableId, productArray) {
     td1.appendChild(document.createTextNode(productArray[i].id));
     td2.appendChild(document.createTextNode(productArray[i].type));
     td3.appendChild(document.createTextNode(productArray[i].price));
-    td4.appendChild(document.createTextNode('Examine'));
+    td4.appendChild(document.createTextNode("Examine"));
     tr.appendChild(td1);
     tr.appendChild(td2);
     tr.appendChild(td3);
@@ -51,9 +51,9 @@ function updateTable(tableId, productArray) {
 }
 
 function updateExaminedText(product) {
-  let outputString = 'Product ID: ' + product.id;
-  outputString += '<br> Price: ' + product.price;
-  outputString += '<br> Type: ' + product.type;
+  let outputString = "Product ID: " + product.id;
+  outputString += "<br> Price: " + product.price;
+  outputString += "<br> Type: " + product.type;
   document.getElementById('productText').innerHTML = outputString;
 }
 
@@ -84,38 +84,10 @@ function processSearch(searchId) {
   });
 }
 
-function searchType(type) {
-  api.searchProductsByType(type).then(function (val) {
-    let similarArray = val;
-    updateTable('similarTable', similarArray);
-  }).catch(function (val) {
-    alert(val);
-  });
-}
-
-function searchPrice(price) {
-  api.searchProductsByPrice(price, 50).then(function (val) {
-    let similarArray = val;
-    updateTable('similarTable', similarArray);
-  }).catch(function (val) {
-    alert(val);
-  });
-}
-
 api.searchAllProducts().then(function (value) {
   updateTable('allTable', value);
 });
 
-document.getElementById('inputButton').addEventListener('click', function () {
+document.getElementById("inputButton").addEventListener('click',function(){
   processSearch(document.getElementById('input').value);
 });
-
-document.getElementById('inputTypeButton').addEventListener('click', function () {
-  let searched = document.getElementById('inputType').value;
-  searched = searched.charAt(0).toUpperCase() + searched.slice(1).toLowerCase();
-  searchType(searched);
-});
-
-document.getElementById('inputPriceButton').addEventListener('click', function () {
-  searchPrice(parseFloat(document.getElementById('inputPrice').value));
-})
